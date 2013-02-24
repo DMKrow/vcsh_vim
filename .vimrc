@@ -4,3 +4,4 @@ if has("python")
 endif
 syntax on
 filetype plugin indent on
+colorscheme elflord
