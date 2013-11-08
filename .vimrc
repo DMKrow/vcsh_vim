@@ -15,23 +15,25 @@ set laststatus=2
 set modeline
 
 "look for alternate location tags (when current directory is readonly)
-if exists("/tmp/dmp.tags")
+if filereadable("/tmp/dmp.tags")
   set tags+=/tmp/dmp.tags
 endif
 
 "cscope settings
 if has("cscope")
-  if exists("cscope.out")
-    cs add cscope.out
-  elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
+  if executable("cscope")
+    if filereadable("cscope.out")
+      cs add cscope.out
+    elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+    endif
+    "use bothe cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+    set cscopetag
+    "check cscope before ctags
+    set csto=0
+    "show message when another cscope db is added
+    set cscopeverbose
   endif
-  "use bothe cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-  set cscopetag
-  "check cscope before ctags
-  set csto=0
-  "show message when another cscope db is added
-  set cscopeverbose
 endif
 
 "Python features
