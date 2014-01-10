@@ -14,6 +14,22 @@ set wildmode=longest,list:longest,list:full
 set laststatus=2
 set modeline
 
+"I like bottom post, not top post
+set splitbelow
+"Likewise open right
+set splitright
+
+"The following make subwindows more "focused"
+set noequalalways
+"Curtain style vertical splits
+set winminwidth=0
+nmap <c-h> <c-w>h<c-w><Bar>
+nmap <c-l> <c-w>l<c-w><Bar>
+"Horizonal
+set winminheight=0
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
 "look for alternate location tags (when current directory is readonly)
 if filereadable("/tmp/dmp.tags")
   set tags+=/tmp/dmp.tags
@@ -43,3 +59,4 @@ if has("python")
 endif
 
 filetype plugin indent on
+set hlsearch
