@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'taglist.vim'
+Plugin 'nanotech/jellybeans.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -44,7 +45,8 @@ filetype plugin indent on    " required
 " End Vundle
 
 "colorscheme koehler
-colorscheme elflord
+"colorscheme elflord
+colorscheme jellybeans
 syntax enable
 
 "TagList plugin (IDE style tag browser)
@@ -110,3 +112,13 @@ set hlsearch
 "highlight DiffDelete cterm=none ctermfg=black ctermbg=Red gui=none guifg=black guibg=Red
 "highlight DiffChange cterm=none ctermfg=black ctermbg=Yellow gui=none guifg=black guibg=Yellow
 "highlight DiffText cterm=none ctermfg=black ctermbg=Magenta gui=none guifg=black guibg=Magenta
+
+
+" set Vim-specific sequences for RGB colors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"set termguicolors
+colorscheme jellybeans
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none', 'gui': 'none', '256gui': 'none' },
+\}
